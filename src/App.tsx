@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Calendar from './components/Calendar';
+import TimeSlots from './components/TimeSlots';
 
-function App() {
+const App: React.FC = () => {
+  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+  const [selectedTimeSlot, setSelectedTimeSlot] = useState<string | null>(null);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Calendly Clone</h1>
+      <Calendar selectedDate={selectedDate} setSelectedDate={setSelectedDate} />
+      {selectedDate && (
+        <TimeSlots
+          selectedDate={selectedDate}
+          selectedTimeSlot={selectedTimeSlot}
+          setSelectedTimeSlot={setSelectedTimeSlot}
+          setSelectedDate={setSelectedDate} // Pass setSelectedDate to TimeSlots component
+        />
+      )}
     </div>
   );
-}
+};
 
 export default App;
