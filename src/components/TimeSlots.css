@@ -1,0 +1,32 @@
+.time-slots-container {
+    text-align: center;
+  }
+  
+  .time-slots-list {
+    list-style-type: none; 
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .time-slot {
+    cursor: pointer;
+    padding: 10px 20px;
+    margin: 5px;
+    border: 2px solid white; 
+    border-radius: 5px;
+    background-color: white;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .time-slot:hover {
+    background-color: #0074D9;
+    color: white;
+  }
+  
+  .time-slot.selected {
+    background-color: #0074D9;
+    color: white;
+  }

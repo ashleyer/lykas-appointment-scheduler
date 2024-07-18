@@ -1,61 +1,28 @@
 import React from 'react';
-import moment from 'moment-timezone';
+import './TimeSlots.css'; 
 
 interface TimeSlotsProps {
   selectedDate: Date;
   selectedTimeSlot: string | null;
-  setSelectedTimeSlot: (timeSlot: string | null) => void; // Ensure setSelectedTimeSlot accepts string or null
-  setSelectedDate: (date: Date | null) => void; // Ensure setSelectedDate accepts a Date or null
+  setSelectedTimeSlot: (timeSlot: string | null) => void;
 }
 
-const TimeSlots: React.FC<TimeSlotsProps> = ({
-  selectedDate,
-  selectedTimeSlot,
-  setSelectedTimeSlot,
-  setSelectedDate,
-}) => {
+const TimeSlots: React.FC<TimeSlotsProps> = ({ selectedDate, selectedTimeSlot, setSelectedTimeSlot }) => {
   const timeSlots = [
-    '09:00',
-    '10:00',
-    '11:00',
-    '12:00',
-    '13:00',
-    '14:00',
-    '15:00',
-    '16:00',
-    '17:00',
+    '09:00 AM', '10:00 AM', '11:00 AM', '12:00 PM', '01:00 PM', '02:00 PM', '03:00 PM', '04:00 PM', '05:00 PM'
   ];
 
-  const timeZones = moment.tz.names();
-
-  const handleTimeZoneChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const timeZone = e.target.value;
-    const updatedDate = moment.tz(selectedDate, timeZone).toDate();
-    setSelectedTimeSlot(null); // Reset the selected time slot
-    setSelectedDate(updatedDate); // Update the selected date with the new time zone
-  };
-
   return (
-    <div>
-      <h2>Select a Time Slot</h2>
-      <select onChange={handleTimeZoneChange}>
-        {timeZones.map((tz) => (
-          <option key={tz} value={tz}>
-            {tz}
-          </option>
-        ))}
-      </select>
-      <ul>
-        {timeSlots.map((slot) => (
-          <li key={slot}>
-            <button
-              onClick={() => setSelectedTimeSlot(slot)}
-              style={{
-                backgroundColor: selectedTimeSlot === slot ? 'lightblue' : 'white',
-              }}
-            >
-              {slot}
-            </button>
+    <div className="time-slots-container">
+      <h3>Choose an Available Time for  {selectedDate.toDateString()}:</h3>
+      <ul className="time-slots-list">
+        {timeSlots.map((timeSlot) => (
+          <li
+            key={timeSlot}
+            className={`time-slot ${selectedTimeSlot === timeSlot ? 'selected' : ''}`}
+            onClick={() => setSelectedTimeSlot(timeSlot)}
+          >
+            {timeSlot}
           </li>
         ))}
       </ul>

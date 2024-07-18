@@ -1,23 +1,41 @@
 {
-  "name": "lykas-scheduling-app",
+  "name": "lykas-calendar",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-scripts": "4.0.3",
-    "react-datepicker": "^4.1.1",
     "moment-timezone": "^0.5.34",
-    "typescript": "^4.1.2"
+    "react": "^17.0.2",
+    "react-datepicker": "^4.8.0",
+    "react-dom": "^17.0.2",
+    "react-scripts": "^5.0.1"
   },
   "devDependencies": {
-    "@testing-library/dom": "9.0.0"
+    "@testing-library/dom": "9.0.0",
+    "@testing-library/react": "^12.1.5",
+    "@types/react-datepicker": "^4.7.7",
+    "@types/tapable": "^1.0.6",
+    "assert": "^2.0.0",
+    "cross-env": "^7.0.3",
+    "crypto-browserify": "^3.12.0",
+    "css-loader": "^7.1.2",
+    "https-browserify": "^1.0.0",
+    "node-polyfill-webpack-plugin": "^1.1.4",
+    "os-browserify": "^0.3.0",
+    "stream-browserify": "^3.0.0",
+    "stream-http": "^3.2.0",
+    "style-loader": "^4.0.0",
+    "ts-loader": "^9.5.1",
+    "typescript": "^4.9.5",
+    "url": "^0.11.0",
+    "webpack": "^5.93.0",
+    "webpack-cli": "^5.1.4"
   },
   "scripts": {
-    "start": "cross-env NODE_OPTIONS=--openssl-legacy-provider react-scripts start",
-    "build": "cross-env NODE_OPTIONS=--openssl-legacy-provider react-scripts build",
-    "test": "cross-env NODE_OPTIONS=--openssl-legacy-provider react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "webpack --config webpack.config.js && react-scripts start",
+    "build": "webpack --config webpack.config.js && react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "tsc": "tsc --noEmit"
   },
   "eslintConfig": {
     "extends": [
@@ -36,5 +54,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "resolutions": {
+    "@testing-library/react": "^12.1.5"
   }
 }

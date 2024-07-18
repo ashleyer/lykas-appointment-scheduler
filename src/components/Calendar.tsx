@@ -10,8 +10,8 @@ interface CalendarProps {
 const Calendar: React.FC<CalendarProps> = ({ selectedDate, setSelectedDate }) => {
   return (
     <div>
-      <h2>Select a Date</h2>
-      <DatePicker selected={selectedDate} onChange={(date) => setSelectedDate(date)} inline />
+      <h2>Select a Date:</h2>
+      <DatePicker selected={selectedDate} onChange={(date: Date | null) => setSelectedDate(date)} inline />
     </div>
   );
 };

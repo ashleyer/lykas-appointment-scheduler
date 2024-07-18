@@ -13,6 +13,13 @@
   }
 }
 
+button  {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  color: #3e0e8a;
+  background-color: white
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
