@@ -16,8 +16,8 @@
 button  {
   margin-top: 10px;
   margin-bottom: 20px;
-  color: #3e0e8a;
-  background-color: white
+  color: white;
+  background-color: #3e0e8a;
 }
 
 .App-header {

@@ -8,7 +8,7 @@ const App: React.FC = () => {
   const [selectedTimeSlot, setSelectedTimeSlot] = useState<string | null>(null);
 
   const handleSubmit = () => {
-    alert("Appointment Scheduled! Please check your email for a confirmation");
+    alert(`Selected Time Slot: ${selectedTimeSlot}`);
   };
 
   return (
